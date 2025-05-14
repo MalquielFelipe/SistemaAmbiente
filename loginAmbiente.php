@@ -23,7 +23,7 @@
         <button type = "submit"> Entrar</button>
         
     </form>
-    <p>Nao tem conta? <a herf= "TelaAmbiente.html">Cadastre-se </a></p>
+    <p>Nao tem conta? <a href= "TelaAmbiente.html">Cadastre-se </a></p>
 
 </body>
 </html>
