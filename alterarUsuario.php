@@ -1,51 +1,51 @@
 <?php
 include("conexao.php");
 
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $id = mysqli_real_escape_string($conexao, $_GET['id']);
-    $sql = "SELECT * FROM tb_usuario WHERE id_usuario = '$id'";
+if (isset($_GET['cpf']) && !empty($_GET['cpf'])) {
+    $cpf = mysqli_real_escape_string($conexao, $_GET['cpf']);
+    $sql = "SELECT * FROM tb_usuario WHERE cpf = '$cpf'";
     $resultado = mysqli_query($conexao, $sql);
 
     if ($resultado && mysqli_num_rows($resultado) > 0) {
         $usuario = mysqli_fetch_assoc($resultado);
-        $cpf = num('Y-m-d', strtotime($cpf['cpf']));
     } else {
-        echo "usuario não encontrado";
+        echo "Usuário não encontrado.";
         exit;
     }
 } else {
-    echo "ID não fornecido";
+    echo "CPF não fornecido.";
     exit;
 }
 ?>
- <h2> Tela do Usuario </h2>
-        <div>
-            <label for="cpf">cpf:</label>
-            <input type="text" name="cpf" id="cpf">
-        </div>
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome">
-        </div>
-        
-        <div>
-            <label for="Email">Email:</label>
-            <input type="email" name="email" id="email" >
-        </div>
-        <div>
-            <label for="Telefone">Telefone:</label>
-            <input type="tel" name="telefone" id="telefone">
-        </div>
-        <div>
-            <label for="Tipo_usuario">Tipo:</label>
-            <input type="text" name="tipo_usuario" id="tipo_usuario">
-        </div>
-        <div>
-            <label for="senha">senha:</label>
-            <input type="password" name="senha" id="senha">
-        </div>
 
-        <button type="submit" name="enviar" value="cadastrar">Cadastrar</button>
-        <button type="reset" name="limpar" value="resetar">Limpar</button>
+<h2>Alterar Usuário</h2>
 
-        <form></form>
+<form method="post" action="updateUsuario.php">
+    <div>
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" id="cpf" value="<?php echo htmlspecialchars($usuario['cpf']); ?>" readonly>
+    </div>
+    <div>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" value="<?php echo htmlspecialchars($usuario['nome']); ?>">
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($usuario['email']); ?>">
+    </div>
+    <div>
+        <label for="telefone">Telefone:</label>
+        <input type="tel" name="telefone" id="telefone" value="<?php echo htmlspecialchars($usuario['telefone']); ?>">
+    </div>
+    <div>
+        <label for="tipo_usuario">Tipo:</label>
+        <input type="text" name="tipo_usuario" id="tipo_usuario" value="<?php echo htmlspecialchars($usuario['tipo_usuario']); ?>">
+    </div>
+    <div>
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha" value="<?php echo htmlspecialchars($usuario['senha']); ?>">
+    </div>
+
+    <button type="submit" name="enviar" value="atualizar">Atualizar</button>
+    <button type="reset">Limpar</button>
+</form>
