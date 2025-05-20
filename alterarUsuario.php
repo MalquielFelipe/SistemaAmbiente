@@ -3,14 +3,14 @@ include("conexao.php");
 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = mysqli_real_escape_string($conexao, $_GET['id']);
-    $sql = "SELECT * FROM tb_autor WHERE id_autor = '$id'";
+    $sql = "SELECT * FROM tb_usuario WHERE id_usuario = '$id'";
     $resultado = mysqli_query($conexao, $sql);
 
     if ($resultado && mysqli_num_rows($resultado) > 0) {
-        $autor = mysqli_fetch_assoc($resultado);
-        $dataFormatadaNascimento = date('Y-m-d', strtotime($autor['data_nascimento']));
+        $usuario = mysqli_fetch_assoc($resultado);
+        $cpf = num('Y-m-d', strtotime($cpf['cpf']));
     } else {
-        echo "Autor não encontrado";
+        echo "usuario não encontrado";
         exit;
     }
 } else {
@@ -18,7 +18,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     exit;
 }
 ?>
-
  <h2> Tela do Usuario </h2>
         <div>
             <label for="cpf">cpf:</label>
@@ -49,4 +48,4 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         <button type="submit" name="enviar" value="cadastrar">Cadastrar</button>
         <button type="reset" name="limpar" value="resetar">Limpar</button>
 
-        </form>
+        <form></form>

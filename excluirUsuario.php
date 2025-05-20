@@ -3,16 +3,16 @@
 <?php
 include ("conexao.php");
 
-    if (isset($_GET['id_autor'])){
+    if (isset($_GET['id_usuario'])){
       
-        $id = intval($_GET['id_autor']);
+        $id = intval($_GET['id_usuario']);
 
-        $sql = " delete from tb_autor where id_autor = $id";
+        $sql = " delete from tb_autor where id_usuario = $id";
 
         if ($conexao->query($sql) === true){
             echo " <script>  alert('Não é possível excluir: 
-            o autor possui livros cadastrados.');
-            window.location.href = 'buscarAutor.php';";
+            o usuario possui cadastro na tela ambiente.');
+            window.location.href = 'buscarAmbiente.php';";
         }else{
             echo " <script> alert('Erro ao excluir');
             windows.location.href = 'buscarAutor.php' </script>";
