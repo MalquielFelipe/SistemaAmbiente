@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Usuario</title>
-    <link rel="stylesheet" href="estiloAmbiente.css">
-</head>
-<body>
-    <form name="TealUsuario" id="TelaUsuario" method="post" action="cadastroUsuario.php">
-        <h2> Tela do Usuario </h2>
+<?php
+include("conexao.php");
+
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    $id = mysqli_real_escape_string($conexao, $_GET['id']);
+    $sql = "SELECT * FROM tb_autor WHERE id_autor = '$id'";
+    $resultado = mysqli_query($conexao, $sql);
+
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
+        $autor = mysqli_fetch_assoc($resultado);
+        $dataFormatadaNascimento = date('Y-m-d', strtotime($autor['data_nascimento']));
+    } else {
+        echo "Autor não encontrado";
+        exit;
+    }
+} else {
+    echo "ID não fornecido";
+    exit;
+}
+?>
+
+ <h2> Tela do Usuario </h2>
         <div>
             <label for="cpf">cpf:</label>
             <input type="text" name="cpf" id="cpf">
@@ -38,6 +49,4 @@
         <button type="submit" name="enviar" value="cadastrar">Cadastrar</button>
         <button type="reset" name="limpar" value="resetar">Limpar</button>
 
-    </form>
-</body>
-</html>
+        </form>
