@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Tela Ambiente </title>
-    <link rel="stylesheet" href="estiloAmbiente.css">
-</head>
-<body>
+
     <form name="cadAmbiante" id="cadAmbiante" method="post" action="">
         <h2> Cadastro de Ambientes </h2>
         <div>
@@ -32,5 +24,3 @@
         <button type="reset" name="limpar" value="resetar">Limpar</button>
 
     </form>
-</body>
-</html>

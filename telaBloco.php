@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Bloco do Ambiente</title>
-    <link rel="stylesheet" href="estiloAmbiente.css">
-</head>
-<body>
+ 
     <form name="TelaBloco" id="TelaBloco" method="post" action="cadastroBloco.php">
         <h2> Cadastro de bloco  </h2>
         <div>
@@ -18,5 +10,4 @@
         <button type="reset" name="limpar" value="resetar">Limpar</button>
 
         </form>
-</body>
-</html>
+ 
