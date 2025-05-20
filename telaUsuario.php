@@ -1,18 +1,6 @@
-<<<<<<<< HEAD:telaUsuario.php
 
-    <form name="TelaUsuario" id="TelaUsuario" method="post" action="">
-========
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Usuario</title>
-    <link rel="stylesheet" href="estiloAmbiente.css">
-</head>
-<body>
     <form name="TealUsuario" id="TelaUsuario" method="post" action="cadastroUsuario.php">
->>>>>>>> carloswilson:telaUsuario.html
+
         <h2> Tela do Usuario </h2>
         <div>
             <label for="cpf">cpf:</label>
