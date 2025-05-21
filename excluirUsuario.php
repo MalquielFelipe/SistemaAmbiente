@@ -3,11 +3,11 @@
 <?php
 include ("conexao.php");
 
-    if (isset($_GET['id_usuario'])){
+    if (isset($_GET['cpf'])){
       
-        $id = intval($_GET['id_usuario']);
+        $cpf = intval($_GET['cpf']);
 
-        $sql = " delete from tb_autor where id_usuario = $id";
+        $sql = " delete from tb_usuario where cpf = $cpf";
 
         if ($conexao->query($sql) === true){
             echo " <script>  alert('Não é possível excluir: 
@@ -15,10 +15,10 @@ include ("conexao.php");
             window.location.href = 'buscarAmbiente.php';";
         }else{
             echo " <script> alert('Erro ao excluir');
-            windows.location.href = 'buscarAutor.php' </script>";
+            windows.location.href = 'nom.php' </script>";
         }
     }else{
         echo " <script> alert('Id Inválido ');
-        windows.location.href = 'buscarAutor.php' </script>";
+        windows.location.href = 'nom.php' </script>";
     }
 ?>
