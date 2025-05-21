@@ -92,7 +92,7 @@ footer {
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #2d8ac9;}
+.dropdown:hover .dropbtn {background-color: #808d96;}
 
 
 .carousel-inner img {

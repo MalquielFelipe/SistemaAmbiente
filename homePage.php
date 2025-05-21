@@ -31,7 +31,7 @@
                 <a href="#" id="link-ambiente">Ambiente</a>
                 <a href="#" id="link-bloco">Bloco</a>
                 <a href="#" id="link-reserva">Reserva</a>
-                <a href="#" id="link-usuario">Usuário</a>
+                <a href="#" id="link-BuscarUsuario">Usuário</a>
             </div>
         </div>
     </nav>
@@ -93,6 +93,11 @@
                 e.preventDefault();
                 $('#conteudo').load('telaUsuario.php');
             });
+            $('#link-BuscarUsuario').click(function(e){
+                e.preventDefault();
+                $('#conteudo').load('buscarUsuario.php');
+            });
+
         });
     </script>
 

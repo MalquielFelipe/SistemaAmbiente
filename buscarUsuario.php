@@ -1,47 +1,17 @@
-<!-- Cabeçalho e início já estão bons -->
-<form method="get" action="buscarUsuario.php">
+<form id="form-busca">
     <label for="busca">Buscar por nome:</label>
-    <input type="text" name="busca" id="busca" placeholder="Informe o nome do usuário" />
+    <input type="text" name="busca" id="busca" />
     <button type="submit">Buscar</button>
 </form>
 
-<?php 
-if (isset($_GET['busca'])) {
-    include("conexao.php");
+<div id="resultado-usuario"></div>
 
-    $busca = mysqli_real_escape_string($conexao, trim($_GET['busca']));
-    $sql = "SELECT * FROM tb_usuario WHERE nome LIKE '%$busca%'";
-    $resultado = $conexao->query($sql);
-
-    if ($resultado && $resultado->num_rows > 0) {
-        echo "<table border='1' cellpadding='10'>";
-        echo "<tr>
-                <th>CPF</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Telefone</th>
-                <th>Tipo</th>
-                <th>Senha</th>
-                <th>Alterar</th>
-                <th>Excluir</th>
-              </tr>";
-
-        while ($row = $resultado->fetch_assoc()) {
-            $cpf = htmlspecialchars($row['cpf']);
-            echo "<tr>
-                    <td>" . $cpf . "</td>
-                    <td>" . htmlspecialchars($row['nome']) . "</td>
-                    <td>" . htmlspecialchars($row['email']) . "</td>
-                    <td>" . htmlspecialchars($row['telefone']) . "</td>
-                    <td>" . htmlspecialchars($row['tipo_usuario']) . "</td>
-                    <td>" . htmlspecialchars($row['senha']) . "</td>
-                    <td><a href='alterarUsuario.php?cpf=" . urlencode($cpf) . "'>Alterar</a></td>
-                    <td><a href='excluirUsuario.php?cpf=" . urlencode($cpf) . "' onclick=\"return confirm('Deseja realmente excluir este usuário?')\">Excluir</a></td>
-                  </tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "<p>Nenhum cliente encontrado.</p>";
-    }
-}
-?>
+<script>
+    $('#form-busca').submit(function(e){
+        e.preventDefault();
+        const busca = $('#busca').val();
+        $.get('buscarUsuario2.php', { busca: busca }, function(data){
+            $('#resultado-usuario').html(data);
+        });
+    });
+</script>

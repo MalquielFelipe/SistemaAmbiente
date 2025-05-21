@@ -24,6 +24,7 @@ if (
             WHERE cpf = '$cpf'";
         
         if( mysqli_query($conexao, $sql) ){
+          echo " <script> alert ('dados alterados com sucesso!' ); </script>";
             header("Location: buscarUsuario.php");
         }else{
             echo " Erro ao alterar:" . mysqli_error($conexao);
@@ -31,6 +32,7 @@ if (
     }else{
         echo " Dados incompletos!";
     }
+
     mysqli_close($conexao);
 
 ?>
