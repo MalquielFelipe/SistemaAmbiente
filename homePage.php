@@ -28,7 +28,7 @@
         <div class="dropdown">
             <button class="dropbtn">Consultas</button>
             <div class="dropdown-content">
-                <a href="#" id="link-ambiente">Ambiente</a>
+                <a href="#" id="link-ambientes">Ambiente</a>
                 <a href="#" id="link-bloco">Bloco</a>
                 <a href="#" id="link-reserva">Reserva</a>
                 <a href="#" id="link-BuscarUsuario">Usuário</a>
@@ -96,6 +96,10 @@
             $('#link-BuscarUsuario').click(function(e){
                 e.preventDefault();
                 $('#conteudo').load('buscarUsuario.php');
+            });
+                $('#link-ambientes').click(function(e){
+                e.preventDefault();
+                $('#conteudo').load('buscaAmbiente.php');
             });
 
         });
