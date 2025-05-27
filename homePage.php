@@ -30,6 +30,9 @@
             <div class="dropdown-content">
                 <a href="#" id="link-ambiente">Ambiente</a>
                 <a href="#" id="link-BuscarReserva">Reserva</a>
+                <a href="#" id="link-ambientes">Ambiente</a>
+                <a href="#" id="link-bloco">Bloco</a>
+                <a href="#" id="link-reserva">Reserva</a>
                 <a href="#" id="link-BuscarUsuario">Usuário</a>
                 <a href="#" id="link-BuscarBloco">Bloco</a>
             </div>
@@ -103,9 +106,9 @@
                 e.preventDefault();
                 $('#conteudo').load('buscarUsuario.php');
             });
-              $('#link-BuscarReserva').click(function(e){
+                $('#link-ambientes').click(function(e){
                 e.preventDefault();
-                $('#conteudo').load('buscarReserva.php');
+                $('#conteudo').load('buscaAmbiente.php');
             });
 
         });
