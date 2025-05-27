@@ -23,7 +23,7 @@ if (isset($_GET['cpf']) && !empty($_GET['cpf'])) {
 <form id="form-alterar-usuario">
     <div>
         <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" id="cpf" value="<?php echo htmlspecialchars($usuario['cpf']); ?>" readonly>
+        <input type="text" name="cpf" id="cpf" value="<?php echo htmlspecialchars($usuario['cpf']); ?>" >
     </div>
     <div>
         <label for="nome">Nome:</label>
