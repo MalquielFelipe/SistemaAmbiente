@@ -30,12 +30,12 @@ $result_cpf = mysqli_query($conexao, "SELECT * FROM tb_usuario");
 
     <div>
         <label for="horario">Horário:</label>
-        <input name="horario" id="horario" type="time" value="<?php echo htmlspecialchars($reserva['horario']); ?>" required />
+        <input name="horario" id="horario" type="text" value="<?php echo htmlspecialchars($reserva['horario']); ?>" required />
     </div>
 
     <div>
         <label for="horario_fim">Horário Fim:</label>
-        <input name="horario_fim" id="horario_fim" type="time" value="<?php echo htmlspecialchars($reserva['horario_fim']); ?>" required />
+        <input name="horario_fim" id="horario_fim" type="text" value="<?php echo htmlspecialchars($reserva['horario_fim']); ?>" required />
     </div>
 
     <div>
