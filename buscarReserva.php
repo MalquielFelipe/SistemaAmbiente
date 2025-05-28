@@ -4,7 +4,9 @@
     <button type="submit">Buscar</button>
 </form>
 
+
 <div id="resultado-Reserva"></div>
+<div id="conteudo"></div> 
 
 <script>
     $('#form-busca').submit(function(e){

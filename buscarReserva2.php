@@ -1,3 +1,6 @@
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <?php
 if (isset($_GET['busca'])) {
     include("conexao.php");
@@ -15,8 +18,10 @@ if (isset($_GET['busca'])) {
               </tr>";
 
         while ($row = $resultado->fetch_assoc()) {
+            $id_reserva = htmlspecialchars($row['id']);
             $cpf = htmlspecialchars($row['fk_cpf']);
             echo "<tr>
+<<<<<<< HEAD
                     <td>{$cpf}</td>
                     <td>" . htmlspecialchars($row['fk_ambiente']) . "</td>
                     <td>" . htmlspecialchars($row['horario_inicio']) . "</td>
@@ -26,6 +31,19 @@ if (isset($_GET['busca'])) {
 
                     <td><a href='excluirReserva.php?cpf=" . urlencode($cpf) . "' onclick=\"return confirm('Deseja realmente excluir esta reserva?')\">Excluir</a></td>
                   </tr>";
+=======
+            <td>{$cpf}</td>
+            <td>" . htmlspecialchars($row['fk_ambiente']) . "</td>
+            <td>" . htmlspecialchars($row['horario']) . "</td>
+            <td>" . htmlspecialchars($row['horario_fim']) . "</td>
+            <td>
+                <a href='AlterarReserva.php?id=$id_reserva' class='alterar-link' data-id_reserva='$id_reserva'>Alterar</a>
+            </td>
+            <td>
+                <a href='excluirReserva.php?cpf=" . urlencode($cpf) . "' onclick=\"return confirm('Deseja realmente excluir esta reserva?')\">Excluir</a>
+            </td>
+          </tr>";
+>>>>>>> 731779e3d1e9a10cd7abf6f2f45164d3eac4755a
         }
         echo "</table>";
     } else {
@@ -33,12 +51,14 @@ if (isset($_GET['busca'])) {
     }
 }
 ?>
-<script>
-    // evento delegado para garantir que funcione em conteúdo carregado dinamicamente
-    $(document).on('click', '.alterar-link', function(e){
-    e.preventDefault(); // impede o redirecionamento
-    const cpf = $(this).data('cpf');
 
-    $('#conteudo').load('alterarReserva.php?cpf=' + encodeURIComponent(cpf));
+
+
+<script>
+$(document).on('click', '.alterar-link', function(e){
+    e.preventDefault(); // Impede o redirecionamento
+    const id = $(this).data('id_reserva'); // Usa o id_reserva correto
+
+    $('#conteudo').load('AlterarReserva.php?id=' + encodeURIComponent(id));
 });
 </script>
