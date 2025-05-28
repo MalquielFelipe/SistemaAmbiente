@@ -26,7 +26,7 @@ $result_cpf = mysqli_query($conexao, "SELECT * FROM tb_usuario");
  <h2>Alterar Reserva</h2>
 
 <form id="form-alterar-reserva" method="post" action="updateReserva.php">
-
+    <input type="hidden" name="id" value="<?php echo $reserva['id']; ?>">
 
     <div>
         <label for="horario">Horário:</label>
