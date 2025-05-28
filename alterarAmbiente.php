@@ -1,9 +1,9 @@
 <?php
 include("conexao.php");
 
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $id = mysqli_real_escape_string($conexao, $_GET['id']);
-    $sql = "SELECT * FROM tb_ambiente WHERE id_ambiente = '$id'";
+if (isset($_GET['id_ambiente']) && !empty($_GET['id_ambiente'])) {
+    $id_ambiente = mysqli_real_escape_string($conexao, $_GET['id_ambiente']);
+    $sql = "SELECT * FROM tb_ambiente WHERE id_ambiente = '$id_ambiente'";
     $resultado = mysqli_query($conexao, $sql);
 
     if ($resultado && mysqli_num_rows($resultado) > 0) {
@@ -13,52 +13,38 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         exit;
     }
 } else {
-    echo "<p>ID do ambiente não fornecido.</p>";
+    echo "<p>id do ambiente não fornecido.</p>";
     exit;
 }
-
-// Carrega blocos
-$sql_blocos = "SELECT * FROM tb_bloco_ambiente";
-$result_blocos = $conexao->query($sql_blocos);
 ?>
 
-<form id="form-alterar-ambiente" method="post" action="updateAmbiente.php">
-    <h2>Alterar Ambiente</h2>
-    <input type="hidden" name="id_ambiente" value="<?php echo $ambiente['id_ambiente']; ?>">
+<h2>Alterar Ambiente:</h2>
 
-    <div>
-        <label for="nome">Nome:</label>
-        <input name="nome" id="nome" type="text" value="<?php echo htmlspecialchars($ambiente['nome']); ?>" required />
-    </div>
-
-    <div>
-        <label for="tipo">Tipo:</label>
-        <input name="tipo" id="tipo" type="text" value="<?php echo htmlspecialchars($ambiente['tipo']); ?>" required />
-    </div>
-
+<form id="form-alterar-usuario">
     <div>
         <label for="capacidade">Capacidade:</label>
-        <input name="capacidade" id="capacidade" type="number" value="<?php echo htmlspecialchars($ambiente['capacidade']); ?>" required />
+        <input type="text" name="capacidade" id="capacidade" value="<?php echo htmlspecialchars($ambiente['capacidade']); ?>" >
     </div>
-
     <div>
-        <label for="id_bloco">Bloco:</label>
-        <select name="id_bloco" id="id_bloco" required>
-            <option value="">Selecione um bloco</option>
-            <?php
-            if ($result_blocos && $result_blocos->num_rows > 0) {
-                while ($row = $result_blocos->fetch_assoc()) {
-                    $selected = ($row['id_bloco'] == $ambiente['id_bloco']) ? "selected" : "";
-                    echo "<option value='" . $row['id_bloco'] . "' $selected>" . htmlspecialchars($row['descricao']) . "</option>";
-                }
-            }
-            ?>
-        </select>
+        <label for="bloco">Bloco:</label>
+        <input type="text" name="bloco" id="bloco" value="<?php echo htmlspecialchars($ambiente['bloco']); ?>">
     </div>
-
     <div>
-        <button type="submit">Salvar Alterações</button>
+        <label for="ambiente">Ambiente:</label>
+        <input type="ambiente" name="ambiente" id="ambiente" value="<?php echo htmlspecialchars($ambiente['ambiente']); ?>">
     </div>
+    <div>
+        <label for="nome">Nome:</label>
+        <input type="nome" name="nome" id="nome" value="<?php echo htmlspecialchars($ambiente['nome']); ?>">
+    </div>
+    <div>
+        <label for="tipo">Tipo:</label>
+        <input type="text" name="tipo" id="tipo" value="<?php echo htmlspecialchars($ambiente['tipo']); ?>">
+    </div>
+  
+
+    <button type="submit">Atualizar</button>
+    <button type="reset">Limpar</button>
 </form>
 
 <div id="mensagem-alterar"></div>
@@ -66,10 +52,21 @@ $result_blocos = $conexao->query($sql_blocos);
 <script>
 $('#form-alterar-ambiente').submit(function(e){
     e.preventDefault();
+
     const dados = $(this).serialize();
 
     $.post('updateAmbiente.php', dados, function(resposta){
         $('#mensagem-alterar').html(resposta);
     });
+});
+</script>
+
+<script>
+    // evento delegado para garantir que funcione em conteúdo carregado dinamicamente
+    $(document).on('click', '.alterar-link', function(e){
+    e.preventDefault(); // impede o redirecionamento
+    const id_ambiente = $(this).data('id_ambiente');
+
+    $('#conteudo').load('alterarAmbiente.php?id_ambiente=' + encodeURIComponent(id_ambiente));
 });
 </script>

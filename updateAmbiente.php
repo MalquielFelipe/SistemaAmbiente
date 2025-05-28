@@ -5,7 +5,8 @@ if (
     isset($_POST['nome']) && !empty($_POST['nome']) &&
     isset($_POST['tipo']) && !empty($_POST['tipo']) &&
     isset($_POST['capacidade']) && !empty($_POST['capacidade']) &&
-    isset($_POST['id_bloco']) && !empty($_POST['id_bloco']) ){
+    isset($_POST['id_ambiente']) && !empty($_POST['id_ambiente']) ){
+
         $id_ambiente = mysqli_real_escape_string($conexao, $_POST['id_ambiente']);
         $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
         $tipo = mysqli_real_escape_string($conexao, $_POST['tipo']);

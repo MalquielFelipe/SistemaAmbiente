@@ -13,14 +13,13 @@ if (isset($_GET['busca'])) {
 
         while ($row = $resultado->fetch_assoc()) {
             $id_bloco = htmlspecialchars($row['id_bloco']);
+            
             echo "<tr>
-                 
-                    <td>" . htmlspecialchars($row['descricao']) . "</td>
-                   
-                    <td> <a href='alterarBloco.php' class='alterar-link' data-id_bloco='" . htmlspecialchars($id_bloco) . "'>Alterar</a></td>
+        <td>" . htmlspecialchars($row['descricao']) . "</td>
+        <td><a href='#' class='alterar-link' data-id_bloco='" . htmlspecialchars($id_bloco) . "'>Alterar</a></td>
+        <td><a href='excluirBloco.php?descricao=" . urlencode($id_bloco) . "' onclick=\"return confirm('Deseja realmente excluir este Bloco?')\">Excluir</a></td>
+      </tr>";
 
-                    <td><a href='excluirBloco.php?descricao=" . urlencode($id_bloco) . "' onclick=\"return confirm('Deseja realmente excluir este Bloco?')\">Excluir</a></td>
-                  </tr>";
         }
         echo "</table>";
     } else {
@@ -29,11 +28,10 @@ if (isset($_GET['busca'])) {
 }
 ?>
 <script>
-    // evento delegado para garantir que funcione em conteúdo carregado dinamicamente
-    $(document).on('click', '.alterar-link', function(e){
-    e.preventDefault(); // impede o redirecionamento
-    const descricao = $(this).data('descricao');
-
-    $('#conteudo').load('alterarBloco.php?cpf=' + encodeURIComponent(id_bloco));
+   $(document).on('click', '.alterar-link', function(e){
+    e.preventDefault();
+    const id_bloco = $(this).data('id_bloco');
+    $('#conteudo').load('alterarBloco.php?id_bloco=' + encodeURIComponent(id_bloco));
 });
+
 </script>
