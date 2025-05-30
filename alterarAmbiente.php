@@ -2,6 +2,7 @@
 include("conexao.php");
 
 if (isset($_GET['id_ambiente']) && !empty($_GET['id_ambiente'])) {
+
     $id_ambiente = mysqli_real_escape_string($conexao, $_GET['id_ambiente']);
     $sql = "SELECT * FROM tb_ambiente WHERE id_ambiente = '$id_ambiente'";
     $resultado = mysqli_query($conexao, $sql);
@@ -20,18 +21,18 @@ if (isset($_GET['id_ambiente']) && !empty($_GET['id_ambiente'])) {
 
 <h2>Alterar Ambiente:</h2>
 
-<form id="form-alterar-usuario">
+<form id="form-alterar-ambiente">
     <div>
         <label for="capacidade">Capacidade:</label>
         <input type="text" name="capacidade" id="capacidade" value="<?php echo htmlspecialchars($ambiente['capacidade']); ?>" >
     </div>
     <div>
-        <label for="bloco">Bloco:</label>
-        <input type="text" name="bloco" id="bloco" value="<?php echo htmlspecialchars($ambiente['bloco']); ?>">
+        <label for="fk_bloco">Bloco:</label>
+        <input type="text" name="fk_bloco" id="fk_bloco" value="<?php echo htmlspecialchars($ambiente['fk_bloco']); ?>">
     </div>
     <div>
-        <label for="ambiente">Ambiente:</label>
-        <input type="ambiente" name="ambiente" id="ambiente" value="<?php echo htmlspecialchars($ambiente['ambiente']); ?>">
+        <label for="id_ambiente">Ambiente:</label>
+        <input type="id_ambiente" name="id_ambiente" id="id_ambiente" hidden value="<?php echo htmlspecialchars($ambiente['id_ambiente']);  ?>">
     </div>
     <div>
         <label for="nome">Nome:</label>

@@ -1,5 +1,6 @@
 <?php
 if (isset($_GET['busca'])) {
+  
     include("conexao.php");
     $busca = mysqli_real_escape_string($conexao, trim($_GET['busca']));
     $sql = "SELECT * FROM tb_ambiente WHERE id_ambiente LIKE '%$busca%'";
@@ -36,11 +37,10 @@ if (isset($_GET['busca'])) {
 }
 ?>
 <script>
-    // evento delegado para garantir que funcione em conteúdo carregado dinamicamente
-    $(document).on('click', '.alterar-link', function(e){
+$(document).on('click', '.alterar-link', function(e){
     e.preventDefault(); // impede o redirecionamento
-    const cpf = $(this).data('cpf');
+    const id_ambiente = $(this).data('id_ambiente');
 
-    $('#conteudo').load('alterarAmbiente.php?cpf=' + encodeURIComponent(id_ambiente));
+    $('#conteudo').load('alterarAmbiente.php?id_ambiente=' + encodeURIComponent(id_ambiente));
 });
 </script>
