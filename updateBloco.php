@@ -1,25 +1,23 @@
 <?php
 include("conexao.php");
 
-if (
-      !empty($_POST['descricao']) && !empty($_POST['descricao'])){
-       
-        $descricao = mysqli_real_escape_string($conexao, $_POST['descricao']);
-      
-         $sql = "UPDATE tb_bloco_ambiente SET 
-                descricao = '$descricao', 
-              
-            WHERE id_bloco = '$id_bloco'";
+if (!empty($_POST['descricao']) && !empty($_POST['id_bloco'])) {
+    $descricao = mysqli_real_escape_string($conexao, $_POST['descricao']);
+    $id_bloco = mysqli_real_escape_string($conexao, $_POST['id_bloco']);
+  
+    $sql = "UPDATE tb_bloco_ambiente SET descricao = '$descricao' WHERE id_bloco = '$id_bloco'";
+    
+    if (mysqli_query($conexao, $sql)) {
+        echo "<script>alert('Dados alterados com sucesso!');</script>";
+         
         
-        if( mysqli_query($conexao, $sql) ){
-          echo " <script> alert ('dados alterados com sucesso!' ); </script>";
-            header("Location: buscarBloco.php");
-        }else{
-            echo " Erro ao alterar:" . mysqli_error($conexao);
-        }
-    }else{
-        echo " Dados incompletos!";
+    } else {
+        echo "Erro ao alterar: " . mysqli_error($conexao);
     }
+} else {
+    echo "Dados incompletos!";
+}
+
 
     mysqli_close($conexao);
 

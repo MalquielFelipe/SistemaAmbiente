@@ -29,7 +29,7 @@
             <button class="dropbtn">Consultas</button>
             <div class="dropdown-content">
                 <a href="#" id="link-buscarReserva">Reserva</a>
-                <a href="#" id="link-buscarAmbientes">Ambiente</a>
+                <a href="#" id="link-buscarAmbiente">Ambiente</a>
                 <a href="#" id="link-buscarUsuario">Usuário</a>
                 <a href="#" id="link-buscarBloco">Bloco</a>
             </div>
