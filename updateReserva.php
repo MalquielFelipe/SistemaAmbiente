@@ -21,7 +21,7 @@ if (
             WHERE id = '$id'";
 
     if (mysqli_query($conexao, $sql)) {
-        echo "<script>alert('Dados alterados com sucesso!'); window.location.href='buscarUsuario.php';</script>";
+        echo "<script>alert('Dados alterados com sucesso!'); window.location.href='homePage.php';</script>";
     } else {
         echo "Erro ao alterar: " . mysqli_error($conexao);
     }

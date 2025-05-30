@@ -18,11 +18,11 @@
         
         <div>
             <label for="Horario incial">Horário Inicial:</label>
-            <input type="time" name="HorarioInicial" id="HorarioInicial" >
+            <input type="datetime-local" name="HorarioInicial" id="HorarioInicial" >
         </div>
         <div>
             <label for="Horario final">Horário final:</label>
-            <input type="time" name="Horariofinal" id="Horariofinal">
+            <input type="datetime-local" name="Horariofinal" id="Horariofinal">
         </div>
         
         
