@@ -17,7 +17,7 @@ if (isset($_GET['busca'])) {
             echo "<tr>
         <td>" . htmlspecialchars($row['descricao']) . "</td>
         <td><a href='#' class='alterar-link' data-id_bloco='" . htmlspecialchars($id_bloco) . "'>Alterar</a></td>
-        <td><a href='excluirBloco.php?descricao=" . urlencode($id_bloco) . "' onclick=\"return confirm('Deseja realmente excluir este Bloco?')\">Excluir</a></td>
+        <!-- <td><a href='excluirBloco.php?id_bloco=" . urlencode($id_bloco) . "' onclick=\"return confirm('Deseja realmente excluir este Bloco?')\">Excluir</a></td> --!>
       </tr>";
 
         }

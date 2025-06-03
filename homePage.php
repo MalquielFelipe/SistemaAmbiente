@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Ambiente</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="valida.js"></script>
     <link rel="stylesheet" href="home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>

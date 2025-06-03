@@ -1,5 +1,6 @@
 
-    <form name="TealUsuario" id="TelaUsuario" method="post" action="cadastroUsuario.php">
+     
+ <form name="formulario" id="TelaUsuario" method="post" action="cadastroUsuario.php" onsubmit="return validarFormulario()">
 
         <h2> Tela do Usuario </h2>
         <div>
@@ -32,3 +33,4 @@
         <button type="reset" name="limpar" value="resetar">Limpar</button>
 
     </form>
+    <script src="valida.js"></script>
