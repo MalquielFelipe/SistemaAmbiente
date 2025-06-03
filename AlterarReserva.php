@@ -54,7 +54,7 @@ $result_cpf = mysqli_query($conexao, "SELECT * FROM tb_usuario");
     </div>
 
     <div>
-        <label for="fk_cpf">Usuário (CPF):</label>
+        <label for="fk_cpf">CPF:</label>
         <select name="fk_cpf" id="fk_cpf" required>
             <option value="">Selecione um CPF</option>
             <?php

@@ -21,6 +21,7 @@ if (isset($_GET['busca'])) {
             $id_reserva = htmlspecialchars($row['id']);
             $cpf = htmlspecialchars($row['fk_cpf']);
             echo "<tr>
+<<<<<<< HEAD
                     <td>{$cpf}</td>
                     <td>" . htmlspecialchars($row['fk_ambiente']) . "</td>
                     <td>" . htmlspecialchars($row['horario']) . "</td>
@@ -30,6 +31,19 @@ if (isset($_GET['busca'])) {
 
                     <td><a href='excluirReserva.php?cpf=" . urlencode($cpf) . "' onclick=\"return confirm('Deseja realmente excluir esta reserva?')\">Excluir</a></td>
                   </tr>";
+=======
+            <td>{$cpf}</td>
+            <td>" . htmlspecialchars($row['fk_ambiente']) . "</td>
+            <td>" . htmlspecialchars($row['horario']) . "</td>
+            <td>" . htmlspecialchars($row['horario_fim']) . "</td>
+            <td>
+                <a href='AlterarReserva.php?id=$id_reserva' class='alterar-link' data-id_reserva='$id_reserva'>Alterar</a>
+            </td>
+            <td>
+                <a href='excluirReserva.php?cpf=" . urlencode($cpf) . "' onclick=\"return confirm('Deseja realmente excluir esta reserva?')\">Excluir</a>
+            </td>
+          </tr>";
+>>>>>>> c8d78b9c738517e303ba4b7a10a75a2607c61c13
         }
         echo "</table>";
     } else {

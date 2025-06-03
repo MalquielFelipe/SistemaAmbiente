@@ -47,7 +47,7 @@
                     <img src="imagens/senac2.jpg" class="d-block w-100" alt="Imagem 2">
                 </div>
                 <div class="carousel-item">
-                    <img src="imagens/senac3.jpg" class="d-block w-100" alt="Imagem 3">
+                    <img src="imagens/senac4.jpg" class="d-block w-100" alt="Imagem 3">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
