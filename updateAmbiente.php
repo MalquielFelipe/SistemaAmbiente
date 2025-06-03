@@ -21,16 +21,23 @@ if (
                 tipo = '$tipo'
                 WHERE id_ambiente = '$id_ambiente'";
         
-        if( mysqli_query($conexao, $sql) ){
-          echo " <script> alert ('dados alterados com sucesso!' ); </script>";
-            header("Location: homePage.php");
-        }else{
-            echo " Erro ao alterar:" . mysqli_error($conexao);
-        }
-    }else{
-        echo " Dados incompletos!";
+      if (mysqli_query($conexao, $sql)) {
+        echo "<script>alert('Dados alterados com sucesso!');</script>";
+         
+        
+    } else {
+        echo "Erro ao alterar: " . mysqli_error($conexao);
     }
+} else {
+    echo "Dados incompletos!";
+}
+
 
     mysqli_close($conexao);
-
 ?>
+
+
+
+
+
+
