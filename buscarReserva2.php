@@ -26,9 +26,9 @@ if (isset($_GET['busca'])) {
                     <td>" . htmlspecialchars($row['horario']) . "</td>
                     <td>" . htmlspecialchars($row['horario_fim']) . "</td>
                     <td>
-                    <td> <a href='alterarReserva.php' class='alterar-link' data-cpf='" . htmlspecialchars($cpf) . "'>Alterar</a></td>
+                    <td> <a href='AlterarReserva.php' class='alterar-link' data-id='" . htmlspecialchars($id_reserva) . "'>Alterar</a></td>
 
-                    <td><a href='excluirReserva.php?cpf=" . urlencode($cpf) . "' onclick=\"return confirm('Deseja realmente excluir esta reserva?')\">Excluir</a></td>
+                    <td><a href='ExcluiReserva.php?id=" . urlencode($id_reserva) . "' onclick=\"return confirm('Deseja realmente excluir esta reserva?')\">Excluir</a></td>
                   </tr>";
         }
         echo "</table>";
@@ -43,7 +43,7 @@ if (isset($_GET['busca'])) {
 <script>
 $(document).on('click', '.alterar-link', function(e){
     e.preventDefault(); // Impede o redirecionamento
-    const id = $(this).data('id_reserva'); // Usa o id_reserva correto
+    const id = $(this).data('id'); // Usa o id_reserva correto
 
     $('#conteudo').load('AlterarReserva.php?id=' + encodeURIComponent(id));
 });
