@@ -1,5 +1,5 @@
 
-     
+  <?php    $tipo_usuario = ['ESTUDANTE', 'PROFESSOR', 'ADMINISTRATIVO', 'PEDAGOGO', 'RECEPCAO'];?>
  <form name="formulario" id="TelaUsuario" method="post" action="cadastroUsuario.php" onsubmit="return validarFormulario()">
 
         <h2> Tela do Usuario </h2>
@@ -20,10 +20,13 @@
             <label for="Telefone">Telefone:</label>
             <input type="tel" name="telefone" id="telefone">
         </div>
-        <div>
-            <label for="Tipo_usuario">Tipo:</label>
-            <input type="text" name="tipo_usuario" id="tipo_usuario">
-        </div>
+       
+            <label for="tipo_usuario">Tipo de Usuário:</label>
+    <select name="tipo_usuario" id="tipo_usuario">
+        <?php foreach ($tipo_usuario as $tipo): ?>
+            <option value="<?= $tipo ?>"><?= ucwords(strtolower(str_replace('_', ' ', $tipo))) ?></option>
+        <?php endforeach; ?>
+    </select>
         <div>
             <label for="senha">senha:</label>
             <input type="password" name="senha" id="senha">

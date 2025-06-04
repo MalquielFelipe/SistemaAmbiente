@@ -13,9 +13,21 @@ if(isset($_POST['id_ambiente']) && isset($_POST['cpf']) && isset($_POST['Horario
 
     $sql = " insert into tb_reserva (fk_ambiente, fk_cpf, horario, horario_fim) values ('$ambiente', '$cpf', '$horarioInicio', '$horarioFim')";
     if (mysqli_query($conexao, $sql)){
-        echo " <br> Dados salvos no banco de dados";
+        echo "<script>
+                alert ('Dados salvos no banco de dados');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
     }else{
-        echo " <br> Erro ao salvar!" . mysqli_error($conexao);
+        echo "<script>
+                alert ('Erro ao Salvar');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
+        
+        mysqli_error($conexao);
     }
 }else{
     echo " Preencha todos os dados";

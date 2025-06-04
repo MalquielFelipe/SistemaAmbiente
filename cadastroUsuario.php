@@ -25,9 +25,21 @@ if (
           VALUES ('$cpf', '$nome', '$email', '$telefone', '$tipo_usuario', '$senha')";
 
   if (mysqli_query($conexao, $sql)) {
-    echo "✅ Dados salvos com sucesso no banco de dados.";
+    echo "<script>
+                alert ('✅ Dados salvos com sucesso');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
   } else {
-    echo "❌ Erro ao salvar: " . mysqli_error($conexao);
+    "<script>
+                alert ('Erro ao Salvar');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>"; 
+    
+    mysqli_error($conexao);
   }
 } else {
   echo "⚠️ Campos obrigatórios não foram preenchidos.";
