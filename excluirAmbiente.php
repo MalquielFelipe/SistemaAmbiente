@@ -1,9 +1,9 @@
 <?php   
 include ("conexao.php");
 
-    if (isset($_GET['id'])){
+    if (isset($_GET['id_ambiente'])){
       
-        $id = intval($_GET['id']);
+        $id = intval($_GET['id_ambiente']);
 
         $sql = " delete from tb_ambiente where id_ambiente = $id";
 

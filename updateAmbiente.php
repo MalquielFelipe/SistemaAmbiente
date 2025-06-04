@@ -22,11 +22,23 @@ if (
                 WHERE id_ambiente = '$id_ambiente'";
         
       if (mysqli_query($conexao, $sql)) {
-        echo "<script>alert('Dados alterados com sucesso!');</script>";
+        echo  "<script>
+                alert ('Alterado com sucesso');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
          
         
     } else {
-        echo "Erro ao alterar: " . mysqli_error($conexao);
+        echo "<script>
+                alert ('Erro ao Alterar');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
+        
+        mysqli_error($conexao);
     }
 } else {
     echo "Dados incompletos!";

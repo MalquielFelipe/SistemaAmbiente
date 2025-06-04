@@ -8,17 +8,27 @@ include ("conexao.php");
         $cpf = intval($_GET['cpf']);
 
         $sql = " delete from tb_usuario where cpf = $cpf";
-
-        if ($conexao->query($sql) === true){
-            echo " <script>  alert('Não é possível excluir: 
-            o usuario possui cadastro na tela ambiente.');
-            window.location.href = 'buscarAmbiente.php';";
+  if ($conexao->query($sql) === true){
+           echo "<script>
+                alert ('Excluido com sucesso');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
         }else{
-            echo " <script> alert('Erro ao excluir');
-            windows.location.href = 'nom.php' </script>";
+            echo "<script>
+                alert ('Erro ao excluir');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
         }
     }else{
-        echo " <script> alert('Id Inválido ');
-        windows.location.href = 'nom.php' </script>";
+         echo "<script>
+                alert ('cpf inválido');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
     }
 ?>

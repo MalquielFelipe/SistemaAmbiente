@@ -7,17 +7,27 @@ include ("conexao.php");
         $id_reserva = intval($_GET['id']);
 
         $sql = " delete from tb_reserva where id = $id_reserva";
-
-        if ($conexao->query($sql) === true){
-            echo " <script>  alert('Não é possível excluir: 
-            A reserva possui cadastro na tela ambiente.');
-            window.location.href = 'buscarReserva.php';";
+  if ($conexao->query($sql) === true){
+           echo "<script>
+                alert ('Excluido com sucesso');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
         }else{
-            echo " <script> alert('Erro ao excluir');
-            windows.location.href = 'nom.php' </script>";
+            echo "<script>
+                alert ('Erro ao excluir');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
         }
     }else{
-        echo " <script> alert('Id Inválido ');
-        windows.location.href = 'nom.php' </script>";
+         echo "<script>
+                alert ('ID inválido');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
     }
 ?>
