@@ -8,9 +8,21 @@ include("conexao.php");
 
     $sql = " insert into tb_bloco_ambiente (descricao) value ('$descricao')";
     if (mysqli_query($conexao, $sql)){
-        echo " <br> Dados salvos no banco de dados";
-    }else{
-        echo " <br> Erro ao salvar!" . mysqli_error($conexao);
+        echo"<script>
+                alert ('✅ Dados salvos com sucesso');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>";
+        
+        } else {
+      echo "<script>
+                alert ('❌ Erro ao salvar:');
+                setTimeout(function() {
+                    window.location.href = 'homePage.php';
+                }, 800);
+              </script>"; 
+              mysqli_error($conexao);
     }
     }else{
     echo " Preencha todos os dados";

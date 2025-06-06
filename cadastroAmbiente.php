@@ -33,7 +33,8 @@ if (
                 setTimeout(function() {
                     window.location.href = 'homePage.php';
                 }, 800);
-              </script>" . mysqli_error($conexao);
+              </script>"; 
+              mysqli_error($conexao);
   }
 } else {
   echo "⚠️ Campos obrigatórios não foram preenchidos.";
