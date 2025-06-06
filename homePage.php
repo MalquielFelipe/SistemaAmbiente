@@ -72,6 +72,7 @@
                 $('#conteudo').html(`
                     <h2>Bem-vindo!</h2>
                     <p>Tenha uma experiência única.</p>
+                    <img style="width: 400px; height: 400px;" src="imagens/senac4.jpg" alt="Imagem do Senac">
                 `);
             });
 
