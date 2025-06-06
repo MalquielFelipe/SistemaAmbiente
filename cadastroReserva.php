@@ -9,8 +9,9 @@ if(isset($_POST['id_ambiente']) && isset($_POST['cpf']) && isset($_POST['Horario
     $cpf = mysqli_real_escape_string($conexao, $_POST['cpf']);
     $horarioInicio = mysqli_real_escape_string($conexao, $_POST['HorarioInicial']);
     $horarioFim = mysqli_real_escape_string($conexao, $_POST['Horariofinal']);
-     
 
+     echo "Carregando...";
+     
     $sql = " insert into tb_reserva (fk_ambiente, fk_cpf, horario, horario_fim) values ('$ambiente', '$cpf', '$horarioInicio', '$horarioFim')";
     if (mysqli_query($conexao, $sql)){
         echo "<script>

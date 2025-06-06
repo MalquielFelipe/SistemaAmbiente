@@ -4,7 +4,7 @@ include("conexao.php");
     if(isset($_POST['descricao'])){
         $descricao = mysqli_real_escape_string($conexao, $_POST['descricao']);
         
-        echo "!k";
+        echo "Carregando...";
 
     $sql = " insert into tb_bloco_ambiente (descricao) value ('$descricao')";
     if (mysqli_query($conexao, $sql)){
