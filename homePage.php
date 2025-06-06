@@ -19,21 +19,21 @@
         <div class="dropdown">
             <button class="dropbtn">Cadastros</button>
             <div class="dropdown-content">
-                <a href="#" id="link-ambiente">Ambiente</a>
-                <a href="#" id="link-bloco">Bloco</a>
-                <a href="#" id="link-reserva">Reserva</a>
                 <a href="#" id="link-usuario">Usuário</a>
-            </div>
+                <a href="#" id="link-ambiente">Ambiente</a>
+                <a href="#" id="link-reserva">Reserva</a>
+                <a href="#" id="link-bloco">Bloco</a>
+                 </div>
         </div>
 
         <div class="dropdown">
             <button class="dropbtn">Consultas</button>
             <div class="dropdown-content">
-                <a href="#" id="link-buscarReserva">Reserva</a>
-                <a href="#" id="link-buscarAmbiente">Ambiente</a>
                 <a href="#" id="link-buscarUsuario">Usuário</a>
-                <a href="#" id="link-buscarBloco">Bloco</a>
-            </div>
+                <a href="#" id="link-buscarAmbiente">Ambiente</a>
+                <a href="#" id="link-buscarReserva">Reserva</a>
+                 <a href="#" id="link-buscarBloco">Bloco</a>
+                </div>
         </div>
     </nav>
 
